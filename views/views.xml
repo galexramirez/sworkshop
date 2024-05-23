@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="sworkshop.list">
+      <field name="name">sworkshop list</field>
+      <field name="model">sworkshop.sworkshop</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="sworkshop.action_window">
+      <field name="name">sworkshop window</field>
+      <field name="res_model">sworkshop.sworkshop</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="sworkshop.action_server">
+      <field name="name">sworkshop server</field>
+      <field name="model_id" ref="model_sworkshop_sworkshop"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="sworkshop" id="sworkshop.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="sworkshop.menu_1" parent="sworkshop.menu_root"/>
+    <menuitem name="Menu 2" id="sworkshop.menu_2" parent="sworkshop.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="sworkshop.menu_1_list" parent="sworkshop.menu_1"
+              action="sworkshop.action_window"/>
+    <menuitem name="Server to list" id="sworkshop" parent="sworkshop.menu_2"
+              action="sworkshop.action_server"/>
+-->
+  </data>
+</odoo>
