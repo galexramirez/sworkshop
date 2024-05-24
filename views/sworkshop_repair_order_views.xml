@@ -1,0 +1,24 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="sworkshop.list_repair_order">
+      <field name="name">Repair Order List</field>
+      <field name="model">repair.order</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="customer"/>
+          <field name="vehicle"/>
+          <field name="opening_date"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="sworkshop.action_repair_order">
+      <field name="name">Repair Order</field>
+      <field name="res_model">repair.order</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>
