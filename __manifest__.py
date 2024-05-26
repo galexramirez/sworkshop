@@ -18,12 +18,16 @@ Long description of module's purpose
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': [
+        'base',
+        'fleet'
+    ],
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/sworkshop_repair_order_views.xml',
+        'security/ir.model.access.csv',
+        'views/inherited_fleet_vehicle_views.xml',
+        'views/sworkshop_order_views.xml',
         'views/sworkshop_menu_root.xml',
         'views/views.xml',
         'views/templates.xml',

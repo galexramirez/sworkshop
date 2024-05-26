@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
 
 from . import models
-from . import rapair_order
+from . import sworkshop_order
+from . import inherited_fleet_vehicle

@@ -6,15 +6,15 @@
 
     <!-- menu categories -->
 
-    <menuitem name="Order Repair" id="sworkshop.menu_1" parent="sworkshop.menu_root"/>
+    <menuitem name="Workshop Order" id="sworkshop.menu_1" parent="sworkshop.menu_root"/>
     <menuitem name="Configuration" id="sworkshop.menu_2" parent="sworkshop.menu_root"/>
 
     <!-- actions -->
 
-    <menuitem name="Order Repair" id="sworkshop.menu_1_list" parent="sworkshop.menu_1"
-              action="sworkshop.action_repair_order"/>
-    <menuitem name="Vehicle" id="sworkshop" parent="sworkshop.menu_2"
-              action="sworkshop.action_vehicle"/>
+    <menuitem name="Workshop Order" id="sworkshop.menu_1_list" parent="sworkshop.menu_1"
+              action="sworkshop.action_order"/>
+    <menuitem name="Vehicle" id="sworkshop.menu_2_list" parent="sworkshop.menu_2"
+              action="sworkshop.action_fleet_vehicle"/>
 
   </data>
 </odoo>

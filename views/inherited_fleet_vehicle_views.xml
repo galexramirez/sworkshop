@@ -1,9 +1,9 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-    <record model="ir.ui.view" id="sworkshop.list_vehicle">
+    <!-- <record model="ir.ui.view" id="sworkshop.list_fleet_vehicle">
       <field name="name">Vehicle</field>
-      <field name="model">repair.order</field>
+      <field name="model">fleet.vehicle</field>
       <field name="arch" type="xml">
         <tree>
           <field name="customer"/>
@@ -11,12 +11,12 @@
           <field name="opening_date"/>
         </tree>
       </field>
-    </record>
+    </record>-->
 
     <!-- actions opening views on models -->
-    <record model="ir.actions.act_window" id="sworkshop.action_repair_order">
-      <field name="name">Repair Order</field>
-      <field name="res_model">repair.order</field>
+    <record model="ir.actions.act_window" id="sworkshop.action_fleet_vehicle">
+      <field name="name">Vehicle</field>
+      <field name="res_model">fleet.vehicle</field>
       <field name="view_mode">tree,form</field>
     </record>
 
