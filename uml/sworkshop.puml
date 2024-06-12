@@ -1,0 +1,33 @@
+@startuml orden
+
+Persona <|-- Cliente
+Persona <|-- Empleado
+
+Orden "1" -- "1..*" Cliente
+Orden "1" -- "1..*" Empleado
+Orden "1" -- "1..*" Vehiculo
+
+
+class Persona {
+
+}
+
+class Cliente {
+
+}
+
+class Empleado {
+
+}
+
+class Orden {
+
+
+}
+
+class Vehiculo {
+    - str placa
+    - str modelo
+    - str marca
+    + to_dictionary(): Dictionary
+}

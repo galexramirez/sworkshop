@@ -2,4 +2,5 @@
 
 from . import models
 from . import sworkshop_order
-from . import inherited_fleet_vehicle
+from . import fleet_vehicle
+from . import sworkshop_vehicle_state

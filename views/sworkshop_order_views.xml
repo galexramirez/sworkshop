@@ -13,8 +13,22 @@
       </field>
     </record>
 
+    <record model="ir.ui.view" id="sworkshop.form_order">
+      <field name="name">Workshop Order Form</field>
+      <field name="model">sworkshop.order</field>
+      <field name="arch" type="xml">
+        <form string='Workshop Order'>
+          <group>
+            <field name="customer_id"/>
+            <field name="vehicle_id"/>
+            <field name="opening_date"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
     <!-- actions opening views on models -->
-    <record model="ir.actions.act_window" id="sworkshop.action_order">
+    <record model="ir.actions.act_window" id="sworkshop.action_order_window">
       <field name="name">Workshop Order</field>
       <field name="res_model">sworkshop.order</field>
       <field name="view_mode">tree,form</field>

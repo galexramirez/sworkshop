@@ -2,9 +2,9 @@
 
 from odoo import models, fields, api
 
-class Order(models.Model):
+class order(models.Model):
     _name = 'sworkshop.order'
-    _description = 'Workshop Order'
+    _description = 'Service Workshop Order'
     _order = 'id desc'
     
     customer_id = fields.Many2one("res.partner", string="Customer", required=True)

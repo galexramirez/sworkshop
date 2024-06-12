@@ -2,10 +2,10 @@
 {
     'name': "Service Workshop",
     
-    'summary': "Short (1 phrase/line) summary of the module's purpose",
+    'summary': "Mechanical Workshop Management",
 
     'description': """
-Long description of module's purpose
+Administration and Management of services and resources for the care of a mechanical workshop
     """,
 
     'author': "Alexander Ramirez",
@@ -26,7 +26,14 @@ Long description of module's purpose
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'views/inherited_fleet_vehicle_views.xml',
+        'views/fleet_vehicle_atypes_views.xml',
+        'views/fleet_vehicle_tags_views.xml',
+        'views/sworkshop_vehicle_state_views.xml',
+        'views/fleet_vehicle_stypes_views.xml',
+        'views/fleet_vehicle_categories_views.xml',
+        'views/fleet_vehicle_models_views.xml',
+        'views/fleet_vehicle_manufactures_views.xml',
+        'views/fleet_vehicle_views.xml',
         'views/sworkshop_order_views.xml',
         'views/sworkshop_menu_root.xml',
         'views/views.xml',

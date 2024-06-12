@@ -1,0 +1,12 @@
+<odoo>
+  <data>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="sworkshop.action_vstatus_window">
+      <field name="name">Status</field>
+      <field name="res_model">sworkshop.vehicle.state</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

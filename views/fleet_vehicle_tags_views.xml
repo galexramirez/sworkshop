@@ -1,0 +1,12 @@
+<odoo>
+  <data>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="sworkshop.action_tags_window">
+      <field name="name">Tags</field>
+      <field name="res_model">fleet.vehicle.tag</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

@@ -1,0 +1,12 @@
+<odoo>
+  <data>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="sworkshop.action_models_window">
+      <field name="name">Models</field>
+      <field name="res_model">fleet.vehicle.model</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>
