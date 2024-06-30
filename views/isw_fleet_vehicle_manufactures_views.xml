@@ -2,8 +2,8 @@
   <data>
 
     <!-- actions opening views on models -->
-    <record model="ir.actions.act_window" id="sworkshop.action_manufactures_window">
-      <field name="name">Manufactures</field>
+    <record model="ir.actions.act_window" id="isw_action_manufactures_window">
+      <field name="name">iSW Manufactures</field>
       <field name="res_model">fleet.vehicle.model.brand</field>
       <field name="view_mode">tree,form</field>
     </record>

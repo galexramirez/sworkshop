@@ -2,8 +2,8 @@
   <data>
 
     <!-- actions opening views on models -->
-    <record model="ir.actions.act_window" id="sworkshop.action_categories_window">
-      <field name="name">Categories</field>
+    <record model="ir.actions.act_window" id="isw_action_categories_window">
+      <field name="name">iSW Categories</field>
       <field name="res_model">fleet.vehicle.model.category</field>
       <field name="view_mode">tree,form</field>
     </record>

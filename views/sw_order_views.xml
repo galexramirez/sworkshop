@@ -1,7 +1,7 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-    <record model="ir.ui.view" id="sworkshop.list_order">
+    <!-- <record model="ir.ui.view" id="sworkshop.list_order">
       <field name="name">Workshop Order List</field>
       <field name="model">sworkshop.order</field>
       <field name="arch" type="xml">
@@ -25,10 +25,10 @@
           </group>
         </form>
       </field>
-    </record>
+    </record> -->
 
     <!-- actions opening views on models -->
-    <record model="ir.actions.act_window" id="sworkshop.action_order_window">
+    <record model="ir.actions.act_window" id="sw_action_order_window">
       <field name="name">Workshop Order</field>
       <field name="res_model">sworkshop.order</field>
       <field name="view_mode">tree,form</field>

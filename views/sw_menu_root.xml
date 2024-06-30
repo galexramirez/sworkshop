@@ -1,0 +1,43 @@
+<odoo>
+  <data>
+    <!-- Top menu item -->
+
+    <menuitem name="Service Workshop" id="sworkshop_menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Workshop" id="sworkshop_menu_1" parent="sworkshop_menu_root"/>
+    <menuitem name="Vehicles" id="sworkshop_menu_2" parent="sworkshop_menu_root"/>
+    <menuitem name="Products" id="sworkshop_menu_3" parent="sworkshop_menu_root"/>
+    <menuitem name="Configuration" id="sworkshop_menu_4" parent="sworkshop_menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="Order" id="sworkshop_menu_1_order_list" parent="sworkshop_menu_1"
+      action="sw_action_order_window"/>
+
+    <menuitem name="Vehicles" id="sworkshop_menu_2_vehicle_list" parent="sworkshop_menu_2"
+      action="isw_action_fleet_vehicle_window"/>
+    <menuitem name="Manufactures" id="sworkshop_menu_2_manufactures_list" parent="sworkshop_menu_2"
+      action="isw_action_manufactures_window"/> 
+    <menuitem name="Models" id="sworkshop_menu_2_models_list" parent="sworkshop_menu_2"
+      action="isw_action_models_window"/> 
+    <menuitem name="Categories" id="sworkshop_menu_2_categories_list" parent="sworkshop_menu_2"
+      action="isw_action_categories_window"/> 
+    <menuitem name="Service Types" id="sworkshop_menu_2_stypes_list" parent="sworkshop_menu_2"
+      action="isw_action_stypes_window"/>
+    <menuitem name="Status" id="sworkshop_menu_2_vstatus_list" parent="sworkshop_menu_2"
+      action="sw.action_vstatus_window"/> 
+    <menuitem name="Tags" id="sworkshop_menu_2_tags_list" parent="sworkshop_menu_2"
+      action="isw_action_tags_window"/> 
+    <menuitem name="Activity Types" id="sworkshop_menu_2_atypes_list" parent="sworkshop_menu_2"
+      action="isw_action_atypes_window"/> 
+
+    <menuitem name="Products" id="sworkshop_menu_3_products_list" parent="sworkshop_menu_3"
+      action="isw_action_products_template_window"/>
+
+    <!-- <menuitem name="Maintenance Types" id="sworkshop.menu_4_configuration_list" parent="sworkshop.menu_4"
+      action="sworkshop.action_maintenance_types_window"/> -->
+
+  </data>
+</odoo>

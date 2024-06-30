@@ -2,8 +2,8 @@
   <data>
 
     <!-- actions opening views on models -->
-    <record model="ir.actions.act_window" id="sworkshop.action_atypes_window">
-      <field name="name">Activity Types</field>
+    <record model="ir.actions.act_window" id="isw_action_atypes_window">
+      <field name="name">iSW Activity Types</field>
       <field name="res_model">mail.activity.type</field>
       <field name="view_mode">tree,form</field>
     </record>
