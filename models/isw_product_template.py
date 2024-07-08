@@ -11,4 +11,3 @@ class ProductTemplate(models.Model):
     manufacturer_code = fields.Char(string='Manufacturer Code')
     application_code = fields.Char(string='Application Code')
     stamping_code = fields.Char(string='Stamping Code')
-

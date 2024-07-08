@@ -27,7 +27,7 @@
     <menuitem name="Service Types" id="sworkshop_menu_2_stypes_list" parent="sworkshop_menu_2"
       action="isw_action_stypes_window"/>
     <menuitem name="Status" id="sworkshop_menu_2_vstatus_list" parent="sworkshop_menu_2"
-      action="sw.action_vstatus_window"/> 
+      action="sw_action_vstatus_window"/> 
     <menuitem name="Tags" id="sworkshop_menu_2_tags_list" parent="sworkshop_menu_2"
       action="isw_action_tags_window"/> 
     <menuitem name="Activity Types" id="sworkshop_menu_2_atypes_list" parent="sworkshop_menu_2"
@@ -36,8 +36,8 @@
     <menuitem name="Products" id="sworkshop_menu_3_products_list" parent="sworkshop_menu_3"
       action="isw_action_products_template_window"/>
 
-    <!-- <menuitem name="Maintenance Types" id="sworkshop.menu_4_configuration_list" parent="sworkshop.menu_4"
-      action="sworkshop.action_maintenance_types_window"/> -->
+    <menuitem name="Maintenance Types" id="sworkshop.menu_4_configuration_list" parent="sworkshop_menu_4"
+      action="sw_action_maintenance_types_window"/>
 
   </data>
 </odoo>
