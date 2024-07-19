@@ -2,3 +2,4 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_sworkshop_order,sworkshop.order,model_sworkshop_order,base.group_user,1,1,1,1
 access_sworkshop_vehicle_state,sworkshop.vehicle.state,model_sworkshop_vehicle_state,base.group_user,1,1,1,1
 access_sworkshop_maintenance_types,sworkshop.maintenance.types,model_sworkshop_maintenance_types,base.group_user,1,1,1,1
+access_sworkshop_order_lines,sworkshop.order.lines,model_sworkshop_order_lines,base.group_user,1,1,1,1

@@ -20,7 +20,11 @@ Administration and Management of services and resources for the care of a mechan
     # any module necessary for this one to work correctly
     'depends': [
         'base',
-        'fleet'
+        'fleet',
+        'product',
+        'sale',
+        'purchase',
+        'stock',
     ],
 
     # always loaded

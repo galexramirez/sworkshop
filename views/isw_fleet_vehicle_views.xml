@@ -2,7 +2,7 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-    <!-- <record model="ir.ui.view" id="sworkshop.inherited_fleet_vehicle_view_tree">
+    <record model="ir.ui.view" id="sworkshop.inherited_fleet_vehicle_view_tree">
       <field name="name">fleet.vehicle.tree.inherited.sworkshop</field>
       <field name="model">fleet.vehicle</field>
       <field name="inherit_id" ref="fleet.fleet_vehicle_view_tree"></field>
@@ -17,10 +17,10 @@
           <attribute name="invisible">True</attribute>
         </xpath>
       </field>
-    </record>  -->
+    </record>
 
     <record model="ir.ui.view" id="fleet_vehicle_view_form_inherit_sworkshop">
-      <!-- <field name="name">fleet.vehicle.form.inherit.sworkshop</field> -->
+      <field name="name">fleet.vehicle.form.inherit.sworkshop</field>
       <field name="model">fleet.vehicle</field>
       <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"></field>
       <field name="arch" type="xml">

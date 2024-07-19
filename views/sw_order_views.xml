@@ -1,31 +1,94 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-    <!-- <record model="ir.ui.view" id="sworkshop.list_order">
-      <field name="name">Workshop Order List</field>
+    <record id="sworkshop.order_view_tree" model="ir.ui.view">
+      <field name="name">sworkshop.order_list</field>
       <field name="model">sworkshop.order</field>
       <field name="arch" type="xml">
-        <tree>
-          <field name="customer_id"/>
-          <field name="vehicle_id"/>
-          <field name="opening_date"/>
-        </tree>
+          <tree string="Order List" decoration-success="status in ('in-quotation','closed')" decoration-bf = "status in ('in-quotation')" decoration-muted="status in ('closed')" >
+              <field name="id"/>
+              <field name="customer_id"/>
+              <field name="vehicle_id"/>
+              <field name="opening_date" />
+              <field name="manager_id" />
+              <field name="repairman_id" />
+              <field name="deadline" />
+              <field name="maintenance_types_id" />
+              <field name="duration" optional="hide" />
+              <field name="status" string="" invisible="1" ></field>
+          </tree>
       </field>
     </record>
 
-    <record model="ir.ui.view" id="sworkshop.form_order">
-      <field name="name">Workshop Order Form</field>
+    <record model="ir.ui.view" id="sworkshop.order_view_form">
+      <field name="name">sworkshop.order_form</field>
       <field name="model">sworkshop.order</field>
       <field name="arch" type="xml">
-        <form string='Workshop Order'>
-          <group>
-            <field name="customer_id"/>
-            <field name="vehicle_id"/>
-            <field name="opening_date"/>
-          </group>
+        <form string='Order Form'>
+          <header>
+            <!-- <button name="action_set_status" string="CLOSED" type="object" class="oe_highlight" invisible="status in ('closed')" />
+            <button name="action_set_cancel" string="CANCEL" type="object" class="oe_highlight" invisible="status in ('closed')" /> -->
+            <field name="status" widget="statusbar" statusbar_visible="chek-in,check-out,in-quotation,closed,canceled" />
+        </header>
+        <sheet>
+            <div class="oe_title">
+                <label for="id" string="ORDER ID"/>
+                <h1 class="mb32">
+                    <field name="id" class="mb16"/>
+                </h1>
+            </div>
+            <group>
+                <group>
+                    <field name="customer_id"/>
+                    <field name="mobile" />
+                    <field name="vehicle_id" />
+                    <field name="opening_date" />
+                </group>
+                <group>
+
+                    <field name="manager_id" decoration-success="manager_id"/>
+                    <field name="repairman_id" />
+                    <field name="helper_id" />
+                </group>
+            </group>
+            <notebook>
+                <page string="Description">
+                    <group>
+                        <field name="failures" />
+                        <field name="duration" />
+                        <field name="deadline" />
+                        <field name="maintenance_types_id" />
+                    </group>
+                </page>
+                <page string="Other Info">
+                    <group>
+                        <field name="driving_test" />
+                        <field name="driver" invisible="not driving_test" />
+                        <!-- <field name="to_repair" invisible="not driving_test" /> -->
+                    </group>
+                </page>
+                <page string="Order Lines">
+                    <field name="lines_ids" readonly="status in ('closed','canceled')">
+                        <tree editable="bottom">
+                            <field name="product_id"/>
+                            <field name="quantity"/>
+                        </tree>
+                        <form>
+                            <sheet>
+                                <group>
+                                    <field name="product_id"/>
+                                    <field name="quantity"/>
+                                </group>
+                            </sheet>
+                        </form>
+                    </field>
+                </page>
+            </notebook>                                    
+        </sheet>
+
         </form>
       </field>
-    </record> -->
+    </record>
 
     <!-- actions opening views on models -->
     <record model="ir.actions.act_window" id="sw_action_order_window">

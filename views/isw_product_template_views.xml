@@ -40,7 +40,7 @@
 
     <!-- actions opening views on models -->
     <record model="ir.actions.act_window" id="isw_action_products_template_window">
-      <field name="name">iSW Products Template</field>
+      <field name="name">Products Template</field>
       <field name="res_model">product.template</field>
       <field name="view_mode">tree,form</field>
     </record>
