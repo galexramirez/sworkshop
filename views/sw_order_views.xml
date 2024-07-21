@@ -45,7 +45,6 @@
                     <field name="opening_date" />
                 </group>
                 <group>
-
                     <field name="manager_id" decoration-success="manager_id"/>
                     <field name="repairman_id" />
                     <field name="helper_id" />
@@ -59,12 +58,15 @@
                         <field name="deadline" />
                         <field name="maintenance_types_id" />
                     </group>
+                    <group>
+                        
+                    </group>
                 </page>
                 <page string="Other Info">
                     <group>
                         <field name="driving_test" />
                         <field name="driver" invisible="not driving_test" />
-                        <!-- <field name="to_repair" invisible="not driving_test" /> -->
+                        <field name="to_repair" invisible="not driving_test" />
                     </group>
                 </page>
                 <page string="Order Lines">

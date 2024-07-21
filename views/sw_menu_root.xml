@@ -34,7 +34,9 @@
       action="isw_action_atypes_window"/> 
 
     <menuitem name="Products" id="sworkshop_menu_3_products_list" parent="sworkshop_menu_3"
-      action="isw_action_products_template_window"/>
+      action="isw_action_product_template_window"/>
+    <menuitem name="Brands" id="sworkshop_menu_3_brands_list" parent="sworkshop_menu_3"
+      action="sw_action_product_brand_window"/>
 
     <menuitem name="Maintenance Types" id="sworkshop.menu_4_configuration_list" parent="sworkshop_menu_4"
       action="sw_action_maintenance_types_window"/>

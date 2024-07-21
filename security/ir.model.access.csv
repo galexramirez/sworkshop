@@ -3,3 +3,5 @@ access_sworkshop_order,sworkshop.order,model_sworkshop_order,base.group_user,1,1
 access_sworkshop_vehicle_state,sworkshop.vehicle.state,model_sworkshop_vehicle_state,base.group_user,1,1,1,1
 access_sworkshop_maintenance_types,sworkshop.maintenance.types,model_sworkshop_maintenance_types,base.group_user,1,1,1,1
 access_sworkshop_order_lines,sworkshop.order.lines,model_sworkshop_order_lines,base.group_user,1,1,1,1
+access_sworkshop_product_brand,sworkshop.product.brand,model_sworkshop_product_brand,base.group_user,1,1,1,1
+access_sworkshop_product_models,sworkshop.product.models,model_sworkshop_product_models,base.group_user,1,1,1,1
