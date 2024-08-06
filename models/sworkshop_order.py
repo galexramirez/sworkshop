@@ -10,7 +10,7 @@ class order(models.Model):
     customer_id = fields.Many2one("res.partner", string="Customer", required=True)
     vehicle_id = fields.Many2one("fleet.vehicle", string="Vehicle", required=True)
     opening_date = fields.Date(string="Opening Date", required=True, copy=False, default=fields.Date.today)
-    mobile = fields.Char(string="Mobile")
+    mobile = fields.Char(string="Mobile", related="customer_id.mobile", readonly=False)
     driver = fields.Many2one("res.partner", string="Driver")
     manager_id = fields.Many2one("res.users", string="Manager", index=True, tracking=True, default=lambda self: self.env.user)
     repairman_id = fields.Many2one("res.users", string="Repairman", required=True)
@@ -23,3 +23,4 @@ class order(models.Model):
     status = fields.Selection(string="Status", selection=[('check-in','Check-In'), ('check-out','Check-Out'), ('in-quotation', 'In Quotation'), ('closed', 'Closed'), ('canceled','Canceled')], default="check-in")
     lines_ids = fields.One2many("sworkshop.order.lines", "order_id", string="Order Lines")
     to_repair = fields.Text(string="To Repair")
+    model_id = fields.Many2one("fleet.vehicle.model", string="Vehicle Model", related="vehicle_id.model_id")

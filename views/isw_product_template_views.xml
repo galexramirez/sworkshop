@@ -24,14 +24,31 @@
       <field name="name">product.template.view.form.inherit.sworkshop</field>
       <field name="model">product.template</field>
       <field name="inherit_id" ref="product.product_template_form_view"></field>
-      <field name="mode">primary</field>
+      <!-- <field name="mode">primary</field> -->
       <field name="arch" type="xml">
         <xpath expr="//form/sheet/notebook/page[@name='general_information']" position="after">
           <page name="sw_codes" string="Codes">
-            
+            <group name="item_codes" string="Data Codes">
+              <field name="brand_id" />
+              <field name="unique_code" />
+              <field name="manufacturer_code" />
+              <field name="application_code" />
+              <field name="stamping_code" />
+            </group>        
           </page>
           <page name="sw_ralations" string="Related Models">
-            
+            <field name="models_ids">
+              <tree editable="bottom">
+                <field name="model_id"></field>    
+              </tree>
+              <form>
+                <sheet>
+                  <group>
+                    <field name="model_id"></field>                    
+                  </group>
+                </sheet>
+              </form>
+            </field>
           </page>
         </xpath>
       </field>
@@ -51,12 +68,12 @@
       <field name="act_window_id" ref="sworkshop.action_products_window"></field>
     </record> -->
 
-    <record model="ir.actions.act_window.view" id="isw_action_view_product_form">
+    <!-- <record model="ir.actions.act_window.view" id="isw_action_view_product_form">
       <field name="sequence" eval="2"></field>
       <field name="view_mode">form</field>
       <field name="view_id" ref="product_template_view_form_inherit_sworkshop"></field>
       <field name="act_window_id" ref="isw_action_product_template_window"></field>
-    </record>
+    </record> -->
 
   </data>
 </odoo>
