@@ -11,6 +11,7 @@ class OrderLines(models.Model):
     _description = "Service Workshop Order Lines"
     _order = "product_id desc"
     
-    product_id = fields.Many2one('product.template', string="Product", required=True)
+    product_id = fields.Many2one('product.template', string="Product", domain="[('models_ids','=','models_ids')]", required=True)
     order_id = fields.Many2one('sworkshop.order', string='Order', required=True)
     quantity = fields.Float(string='Quantity', default=1.0)
+    models_ids = fields.Many2one("fleet.vehicle.model", string="Vehicle Model", related="order_id.model_id")

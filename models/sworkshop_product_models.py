@@ -13,4 +13,3 @@ class ProductModels(models.Model):
     
     model_id = fields.Many2one('fleet.vehicle.model', string="Model", required=True)
     product_id = fields.Many2one('product.template', string='Product', required=True)
-    
