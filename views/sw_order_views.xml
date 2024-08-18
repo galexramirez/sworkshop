@@ -26,9 +26,9 @@
       <field name="arch" type="xml">
         <form string='Order Form'>
           <header>
-            <!-- <button name="action_set_status" string="CLOSED" type="object" class="oe_highlight" invisible="status in ('closed')" />
-            <button name="action_set_cancel" string="CANCEL" type="object" class="oe_highlight" invisible="status in ('closed')" /> -->
-            <field name="status" widget="statusbar" statusbar_visible="chek-in,check-out,in-quotation,closed,canceled" />
+            <button name="action_set_status" string="QUOTE" type="object" class="oe_highlight" invisible="status in ('closed')" />
+            <button name="action_set_cancel" string="CANCEL" type="object" class="oe_highlight" invisible="status in ('closed')" />
+            <field name="status" widget="statusbar" statusbar_visible="check_in,check_out,in_quotation,closed,canceled" />
         </header>
         <sheet>
             <div class="oe_title">
@@ -75,14 +75,14 @@
                         <tree editable="bottom">
                             <field name="product_id" domain="[('model_id','=',model_id)]"/>
                             <field name="quantity"/>
-                            <field name="model_id" invisible="1"/>
+                            <field name="model_id" string="" invisible="1"/>
                         </tree>
                         <form>
                             <sheet>
                                 <group>
                                     <field name="product_id"/>
                                     <field name="quantity"/>
-                                    <field name="model_id" invisible="1"/>
+                                    <field name="model_id" string="" invisible="1"/>
                                 </group>
                             </sheet>
                         </form>

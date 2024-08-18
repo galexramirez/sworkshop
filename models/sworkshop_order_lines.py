@@ -14,3 +14,8 @@ class OrderLines(models.Model):
     order_id = fields.Many2one('sworkshop.order', string='Order', required=True)
     quantity = fields.Float(string='Quantity', default=1.0)
     model_id = fields.Many2one("fleet.vehicle.model", string="Vehicle Model", related="order_id.model_id")
+    
+    @api.model
+    def create(self, vals):
+        self.env['sworkshop.order'].browse(vals['order_id']).update({'status':'check_out'})
+        return super(OrderLines, self).create(vals)
