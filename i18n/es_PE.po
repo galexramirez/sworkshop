@@ -1,0 +1,468 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sworkshop
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0-20240324\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-15 04:16+0000\n"
+"PO-Revision-Date: 2024-08-15 04:16+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sworkshop
+#: model:ir.ui.menu,name:sworkshop.sworkshop_menu_2_atypes_list
+msgid "Activity Types"
+msgstr "Tipo de Actividad"
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_product_product__application_code
+#: model:ir.model.fields,field_description:sworkshop.field_product_template__application_code
+msgid "Application Code"
+msgstr "Código de Aplicación"
+
+#. module: sworkshop
+#: model:ir.ui.menu,name:sworkshop.sworkshop_menu_3_brands_list
+msgid "Brands"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields.selection,name:sworkshop.selection__sworkshop_order__status__canceled
+msgid "Canceled"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.ui.menu,name:sworkshop.sworkshop_menu_2_categories_list
+msgid "Categories"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields.selection,name:sworkshop.selection__sworkshop_order__status__check-in
+msgid "Check-In"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields.selection,name:sworkshop.selection__sworkshop_order__status__check-out
+msgid "Check-Out"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields.selection,name:sworkshop.selection__sworkshop_order__status__closed
+msgid "Closed"
+msgstr ""
+
+#. module: sworkshop
+#: model_terms:ir.ui.view,arch_db:sworkshop.product_template_view_form_inherit_sworkshop
+msgid "Codes"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.ui.menu,name:sworkshop.sworkshop_menu_4
+msgid "Configuration"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_maintenance_types__create_uid
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order__create_uid
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order_lines__create_uid
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_product_brand__create_uid
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_product_models__create_uid
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_vehicle_state__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_maintenance_types__create_date
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order__create_date
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order_lines__create_date
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_product_brand__create_date
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_product_models__create_date
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_vehicle_state__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order__customer_id
+msgid "Customer"
+msgstr ""
+
+#. module: sworkshop
+#: model_terms:ir.ui.view,arch_db:sworkshop.product_template_view_form_inherit_sworkshop
+msgid "Data Codes"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order__deadline
+msgid "Deadline"
+msgstr ""
+
+#. module: sworkshop
+#: model_terms:ir.ui.view,arch_db:sworkshop.order_view_form
+msgid "Description"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_maintenance_types__display_name
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order__display_name
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order_lines__display_name
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_product_brand__display_name
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_product_models__display_name
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_vehicle_state__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order__driver
+msgid "Driver"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order__driving_test
+msgid "Driving Test"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order__duration
+msgid "Duration"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order__failures
+msgid "Failures"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order__helper_id
+msgid "Helper"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_maintenance_types__id
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order__id
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order_lines__id
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_product_brand__id
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_product_models__id
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_vehicle_state__id
+msgid "ID"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields.selection,name:sworkshop.selection__sworkshop_order__status__in-quotation
+msgid "In Quotation"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_maintenance_types__write_uid
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order__write_uid
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order_lines__write_uid
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_product_brand__write_uid
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_product_models__write_uid
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_vehicle_state__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_maintenance_types__write_date
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order__write_date
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order_lines__write_date
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_product_brand__write_date
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_product_models__write_date
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_vehicle_state__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.actions.act_window,name:sworkshop.sw_action_maintenance_types_window
+#: model:ir.model,name:sworkshop.model_sworkshop_maintenance_types
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_maintenance_types__name
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order__maintenance_types_id
+#: model:ir.ui.menu,name:sworkshop.menu_4_configuration_list
+msgid "Maintenance Types"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order__manager_id
+msgid "Manager"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_product_product__manufacturer_code
+#: model:ir.model.fields,field_description:sworkshop.field_product_template__manufacturer_code
+msgid "Manufacturer Code"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.ui.menu,name:sworkshop.sworkshop_menu_2_manufactures_list
+msgid "Manufactures"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order__mobile
+msgid "Mobile"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_product_models__model_id
+msgid "Model"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model,name:sworkshop.model_fleet_vehicle_model
+msgid "Model of a vehicle"
+msgstr "Modelo de un vehículo"
+
+#. module: sworkshop
+#: model:ir.ui.menu,name:sworkshop.sworkshop_menu_2_models_list
+msgid "Models"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_vehicle_state__name
+msgid "Name"
+msgstr ""
+
+#. module: sworkshop
+#: model_terms:ir.ui.view,arch_db:sworkshop.order_view_form
+msgid "ORDER ID"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order__opening_date
+msgid "Opening Date"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order_lines__order_id
+#: model:ir.ui.menu,name:sworkshop.sworkshop_menu_1_order_list
+msgid "Order"
+msgstr ""
+
+#. module: sworkshop
+#: model_terms:ir.ui.view,arch_db:sworkshop.order_view_form
+msgid "Order Form"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order__lines_ids
+#: model_terms:ir.ui.view,arch_db:sworkshop.order_view_form
+msgid "Order Lines"
+msgstr ""
+
+#. module: sworkshop
+#: model_terms:ir.ui.view,arch_db:sworkshop.order_view_tree
+msgid "Order List"
+msgstr ""
+
+#. module: sworkshop
+#: model_terms:ir.ui.view,arch_db:sworkshop.order_view_form
+msgid "Other Info"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_fleet_vehicle__owner_id
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order__owner_id
+msgid "Owner"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model,name:sworkshop.model_product_template
+#: model:ir.model.fields,field_description:sworkshop.field_fleet_vehicle_model__product_id
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order_lines__product_id
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_product_models__product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: sworkshop
+#: model:ir.actions.act_window,name:sworkshop.sw_action_product_brand_window
+msgid "Product Brand"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model,name:sworkshop.model_sworkshop_product_brand
+#: model:ir.model.fields,field_description:sworkshop.field_product_product__brand_id
+#: model:ir.model.fields,field_description:sworkshop.field_product_template__brand_id
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_product_brand__name
+msgid "Product Brands"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_product_product__models_ids
+#: model:ir.model.fields,field_description:sworkshop.field_product_template__models_ids
+msgid "Product Models"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.actions.act_window,name:sworkshop.isw_action_product_template_window
+msgid "Product Template"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.ui.menu,name:sworkshop.sworkshop_menu_3
+#: model:ir.ui.menu,name:sworkshop.sworkshop_menu_3_products_list
+msgid "Products"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order_lines__quantity
+msgid "Quantity"
+msgstr ""
+
+#. module: sworkshop
+#: model_terms:ir.ui.view,arch_db:sworkshop.product_template_view_form_inherit_sworkshop
+msgid "Related Models"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order__repairman_id
+msgid "Repairman"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.actions.act_window,name:sworkshop.sw_action_vstatus_window
+msgid "SW Vehicle Status"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_vehicle_state__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_fleet_vehicle__serial_number
+msgid "Serial Number"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.ui.menu,name:sworkshop.sworkshop_menu_2_stypes_list
+msgid "Service Types"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.ui.menu,name:sworkshop.sworkshop_menu_root
+msgid "Service Workshop"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model,name:sworkshop.model_sworkshop_order
+msgid "Service Workshop Order"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model,name:sworkshop.model_sworkshop_order_lines
+msgid "Service Workshop Order Lines"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model,name:sworkshop.model_sworkshop_product_models
+msgid "Service Workshop Product Models"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_product_product__stamping_code
+#: model:ir.model.fields,field_description:sworkshop.field_product_template__stamping_code
+msgid "Stamping Code"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_fleet_vehicle__workshop_state_id
+msgid "State"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.constraint,message:sworkshop.constraint_sworkshop_vehicle_state_sworkshop_state_name_unique
+msgid "State name already exists"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order__status
+#: model:ir.ui.menu,name:sworkshop.sworkshop_menu_2_vstatus_list
+msgid "Status"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.ui.menu,name:sworkshop.sworkshop_menu_2_tags_list
+msgid "Tags"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order__to_repair
+msgid "To Repair"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_product_product__unique_code
+#: model:ir.model.fields,field_description:sworkshop.field_product_template__unique_code
+msgid "Unique Code"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.actions.act_window,name:sworkshop.isw_action_fleet_vehicle_window
+#: model:ir.model,name:sworkshop.model_fleet_vehicle
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order__vehicle_id
+msgid "Vehicle"
+msgstr "Vehículo"
+
+#. module: sworkshop
+#: model:ir.model.fields,field_description:sworkshop.field_product_product__model_id
+#: model:ir.model.fields,field_description:sworkshop.field_product_template__model_id
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order__model_id
+#: model:ir.model.fields,field_description:sworkshop.field_sworkshop_order_lines__model_id
+msgid "Vehicle Model"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.ui.menu,name:sworkshop.sworkshop_menu_2
+#: model:ir.ui.menu,name:sworkshop.sworkshop_menu_2_vehicle_list
+msgid "Vehicles"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.ui.menu,name:sworkshop.sworkshop_menu_1
+msgid "Workshop"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.actions.act_window,name:sworkshop.sw_action_order_window
+#: model:ir.model.fields,field_description:sworkshop.field_fleet_vehicle__workshop_order_ids
+msgid "Workshop Order"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.model,name:sworkshop.model_sworkshop_vehicle_state
+msgid "Workshop Vehicle Status"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.actions.act_window,name:sworkshop.isw_action_atypes_window
+msgid "iSW Activity Types"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.actions.act_window,name:sworkshop.isw_action_categories_window
+msgid "iSW Categories"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.actions.act_window,name:sworkshop.isw_action_manufactures_window
+msgid "iSW Manufactures"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.actions.act_window,name:sworkshop.isw_action_models_window
+msgid "iSW Models"
+msgstr "iSW Modelos"
+
+#. module: sworkshop
+#: model:ir.actions.act_window,name:sworkshop.isw_action_stypes_window
+msgid "iSW Services Types"
+msgstr ""
+
+#. module: sworkshop
+#: model:ir.actions.act_window,name:sworkshop.isw_action_tags_window
+msgid "iSW Tags"
+msgstr ""

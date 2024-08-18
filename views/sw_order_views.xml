@@ -42,15 +42,13 @@
                     <field name="customer_id"/>
                     <field name="owner_id"/>
                     <field name="mobile" />
-                    <field name="vehicle_id" />
-                    <!-- <field name="" /> -->
+                    <field name="vehicle_id" domain="[('owner_id', '=', owner_id)]" />
                 </group>
                 <group>
                     <field name="opening_date" />
                     <field name="manager_id" decoration-success="manager_id"/>
                     <field name="repairman_id" />
                     <field name="helper_id" />
-                    <field name="model_id"/>
                 </group>
             </group>
             <notebook>
@@ -75,16 +73,16 @@
                 <page string="Order Lines">
                     <field name="lines_ids" readonly="status in ('closed','canceled')">
                         <tree editable="bottom">
-                            <field name="product_id"/>
+                            <field name="product_id" domain="[('model_id','=',model_id)]"/>
                             <field name="quantity"/>
-                            <field name="models_ids"/>
+                            <field name="model_id" invisible="1"/>
                         </tree>
                         <form>
                             <sheet>
                                 <group>
                                     <field name="product_id"/>
                                     <field name="quantity"/>
-                                    <field name="models_ids"/>
+                                    <field name="model_id" invisible="1"/>
                                 </group>
                             </sheet>
                         </form>

@@ -12,3 +12,4 @@ class ProductTemplate(models.Model):
     application_code = fields.Char(string='Application Code')
     stamping_code = fields.Char(string='Stamping Code')
     models_ids = fields.One2many("sworkshop.product.models", "product_id", string="Product Models")
+    model_id = fields.Many2one("fleet.vehicle.model", string="Vehicle Model", related="models_ids.model_id")
