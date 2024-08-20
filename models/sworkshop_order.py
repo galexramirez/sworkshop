@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# return { 'domain' : {'vehicle_id': [('owner_id', '=', rec.owner_id.id)]} }
+
 from odoo import models, fields, api
 from odoo.exceptions import UserError
 
@@ -26,17 +26,18 @@ class order(models.Model):
     lines_ids = fields.One2many("sworkshop.order.lines", "order_id", string="Order Lines")
     to_repair = fields.Text(string="To Repair")
     model_id = fields.Many2one("fleet.vehicle.model", string="Vehicle Model", related="vehicle_id.model_id")
+    summary = fields.Text(string="Summary")
     
     @api.ondelete(at_uninstall=False)
     def _unlink_if_status_in_quotation_canceled(self):
         if any(record.status in ('check_out','in_quotation', 'closed') for record in self):
             raise UserError("Only check in o canceled orders can be deleted.")
 
-    def action_set_status(self):
+    """ def action_set_status(self):
         if any(record.status == 'canceled' for record in self):
             raise UserError('Canceled order cannot be quoted.')
         self.update({'status': ''})
-        return True
+        return True """
     
     def action_set_cancel(self):
         if any(record.status == 'in-quotation' for record in self):

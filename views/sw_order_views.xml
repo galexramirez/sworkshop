@@ -88,6 +88,11 @@
                         </form>
                     </field>
                 </page>
+                <page string="Resume" readonly="status in ('check_in','check_out','closed','canceled')">
+                    <group>
+                        <field name="summary" />
+                    </group>
+                </page>
             </notebook>                                    
         </sheet>
 
