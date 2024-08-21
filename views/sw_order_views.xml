@@ -6,7 +6,7 @@
       <field name="model">sworkshop.order</field>
       <field name="arch" type="xml">
           <tree string="Order List" decoration-success="status in ('in-quotation','closed')" decoration-bf = "status in ('in-quotation')" decoration-muted="status in ('closed')" >
-              <field name="id"/>
+              <field name="name"/>
               <field name="customer_id"/>
               <field name="vehicle_id"/>
               <field name="opening_date" />
@@ -32,9 +32,8 @@
         </header>
         <sheet>
             <div class="oe_title">
-                <label for="id" string="ORDER ID"/>
                 <h1 class="mb32">
-                    <field name="id" class="mb16"/>
+                    <field name="name" class="mb16"/>
                 </h1>
             </div>
             <group>
@@ -105,6 +104,16 @@
       <field name="name">Workshop Order</field>
       <field name="res_model">sworkshop.order</field>
       <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="sequence_self_order" model="ir.sequence">
+        <field name="name">Self Order</field>
+        <field name="code">self.order</field>
+        <field name="active">TRUE</field>
+        <field name="prefix">SW</field>
+        <field name="padding">6</field>
+        <field name="number_next">1</field>
+        <field name="number_increment">1</field>
     </record>
 
   </data>

@@ -8,6 +8,11 @@ class order(models.Model):
     _description = 'Service Workshop Order'
     _order = 'id desc'
 
+    name = fields.Char(
+        string="Order Reference",
+        required=True, copy=False, readonly=True,
+        default='New')
+
     customer_id = fields.Many2one("res.partner", string="Customer", required=True)
     owner_id = fields.Many2one("res.partner", string="Owner", required=True, related="customer_id", readonly=False)
     vehicle_id = fields.Many2one("fleet.vehicle", string="Vehicle", required=True)
@@ -33,14 +38,22 @@ class order(models.Model):
         if any(record.status in ('check_out','in_quotation', 'closed') for record in self):
             raise UserError("Only check in o canceled orders can be deleted.")
 
-    """ def action_set_status(self):
+    def action_set_status(self):
         if any(record.status == 'canceled' for record in self):
             raise UserError('Canceled order cannot be quoted.')
         self.update({'status': ''})
-        return True """
+        return True
     
     def action_set_cancel(self):
         if any(record.status == 'in-quotation' for record in self):
             raise UserError('Quoted order cannot be canceled.')
         self.update({'status': 'canceled'})
         return True
+
+    @api.model
+    def create(self, vals):
+        if vals.get('name', 'New') == 'New':
+            vals['name'] = self.env['ir.sequence'].next_by_code(
+                'self.order') or 'New'
+        result = super(order, self).create(vals)
+        return result
