@@ -10,4 +10,3 @@ class FleetVehicle(models.Model):
     owner_id = fields.Many2one('res.partner', string='Owner', required=True)
     workshop_state_id = fields.Many2one('sworkshop.vehicle.state', string='State')
     serial_number = fields.Char(string='Serial Number')
-

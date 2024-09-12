@@ -10,3 +10,4 @@ from . import isw_product_template
 from . import sworkshop_maintenance_types
 from . import sworkshop_order_lines
 from . import sworkshop_product_brand
+from . import isw_sale_order
