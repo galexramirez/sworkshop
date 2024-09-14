@@ -5,19 +5,18 @@
             <field name="name">sworkshop.order_list</field>
             <field name="model">sworkshop.order</field>
             <field name="arch" type="xml">
-                <tree string="Order List" decoration-success="status in ('in-quotation','closed')"
-                    decoration-bf="status in ('in-quotation')"
-                    decoration-muted="status in ('closed')">
-                    <field name="name" />
+                <tree string="Order List" decoration-success="state in ('quote','close')"
+                    decoration-bf="state in ('quote')"
+                    decoration-muted="state in ('close')">
+                    <field name="name" string="Number" />
+                    <field name="opening_date" />
                     <field name="customer_id" />
                     <field name="vehicle_id" />
-                    <field name="opening_date" />
                     <field name="manager_id" />
                     <field name="repairman_id" />
                     <field name="deadline" />
                     <field name="maintenance_types_id" />
-                    <field name="duration" optional="hide" />
-                    <field name="status" string="" invisible="1"></field>
+                    <field name="state"></field>
                 </tree>
             </field>
         </record>
@@ -26,15 +25,15 @@
             <field name="name">sworkshop.order_kanban</field>
             <field name="model">sworkshop.order</field>
             <field name="arch" type="xml">
-                <kanban default_group_by='status' class="o_sworkshop_order_kanban">
-                    <field name="status" />
+                <kanban default_group_by='state' class="o_sworkshop_order_kanban">
+                    <field name="state" />
                     <templates>
                         <t t-name="kanban-box">
                             <div class="oe_kanban_global_click">
                                 <field name="name" />
                                 <field name="customer_id"/>
                                 <field name="vehicle_id" />
-                                <div t-if="record.status.raw_value == 'check_in'">
+                                <div t-if="record.state.raw_value == 'new'">
                                     This is new!
                                 </div>
                             </div>
@@ -50,12 +49,12 @@
             <field name="arch" type="xml">
                 <form string='Order Form'>
                     <header>
-                        <!-- <button name="action_set_status" string="QUOTATIONS" type="object"
-                            class="oe_highlight" invisible="status in ('closed')" /> -->
+                        <button name="action_set_status" string="QUOTE" type="object"
+                            class="oe_highlight" invisible="state in ('close')" />
                         <button name="action_set_cancel" string="CANCEL" type="object"
-                            class="oe_highlight" invisible="status in ('closed')" />
-                        <field name="status" widget="statusbar"
-                            statusbar_visible="check_in,check_out,in_quotation,closed,canceled" />
+                            class="oe_highlight" invisible="state in ('close')" />
+                        <field name="state" widget="statusbar"
+                            statusbar_visible="new,check_out,quote,close,cancel" />
                     </header>
                     <sheet>
                         <field name="image_vehicle" widget="image" class="oe_avatar" />
@@ -81,8 +80,6 @@
                                 <group>
                                     <group>
                                         <field name="failures" />
-                                        <field name="note" />
-                                        <field name="image" widget="image" class="oe_avatar" />
                                     </group>
                                     <group>
                                         <field name="driving_test" />
@@ -90,9 +87,11 @@
                                         <field name="to_repair" invisible="not driving_test" />
                                     </group>
                                 </group>
+                                <label for='note'>Note</label>
+                                <field name="note" nolabel="1" placeholder="Write here any other information related to this vehicle" />
                             </page>
                             <page string="Order Lines">
-                                <field name="lines_ids" readonly="status in ('closed','canceled')">
+                                <field name="lines_ids" readonly="state in ('close','cancel')">
                                     <tree editable="bottom" limit="200">
                                         <field name="product_id"
                                             domain="[('model_id','=',model_id)]" />
@@ -125,7 +124,7 @@
                                 </group>
                             </page>
                             <page string="Resume"
-                                readonly="status in ('check_in','check_out','closed','canceled')">
+                                readonly="state in ('new','check_out','quote','cancel')">
                                 <group>
                                     <field name="summary" />
                                 </group>
@@ -148,9 +147,9 @@
             <field name="view_mode">tree,kanban,form</field>
         </record>
 
-        <record id="sequence_self_order" model="ir.sequence">
-            <field name="name">Self Order</field>
-            <field name="code">self.order</field>
+        <record id="sequence_sworkshop_order" model="ir.sequence">
+            <field name="name">Sworkshop Order</field>
+            <field name="code">sworkshop.order</field>
             <field name="active">TRUE</field>
             <field name="prefix">SW</field>
             <field name="padding">6</field>

@@ -34,15 +34,18 @@
           <attribute name="invisible">True</attribute>
         </xpath>
         <xpath expr="//form/sheet/group/group/field[@name='driver_id']" position="after">
-          <field name="owner_id"/>
+          <field name="owner_id" />
         </xpath>
         <xpath expr="//form/sheet/group/group/field[@name='future_driver_id']" position="attributes">
           <attribute name="invisible">True</attribute>
         </xpath>
         <xpath expr="//form/sheet/group/group/field[@name='company_id']" position="after">
-          <field name="id"/>
+          <field name="id" />
           <field name="serial_number" />
         </xpath>
+        <!-- <xpath expr="//form/sheet/notebook/page/field[@name='note']" position="attributes">
+          <attribute name="string">Technical Sheet</attribute>
+        </xpath> -->
       </field>
     </record>
 

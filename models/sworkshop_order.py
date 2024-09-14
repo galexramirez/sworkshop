@@ -5,6 +5,14 @@ from odoo.exceptions import UserError
 from datetime import datetime, timedelta
 from odoo import Command
 
+SWORKSHOP_ORDER_STATE = [
+    ("new", "Check In"),
+    ("check_out","Check Out"), 
+    ("quote", "Quote"), 
+    ("close", "Closed"), 
+    ("cancel", "Cancelled"),
+]
+
 class Order(models.Model):
     _name = 'sworkshop.order'
     _inherit = ['mail.thread', 'mail.activity.mixin']
@@ -14,6 +22,10 @@ class Order(models.Model):
         string="Order Reference",
         required=True, copy=False, readonly=True,
         default='New')
+    company_id = fields.Many2one(
+        comodel_name='res.company',
+        required=True, index=True,
+        default=lambda self: self.env.company)
     customer_id = fields.Many2one("res.partner", string="Customer", required=True)
     owner_id = fields.Many2one("res.partner", string="Owner", required=True, related="customer_id", readonly=False)
     vehicle_id = fields.Many2one("fleet.vehicle", string="Vehicle", required=True)
@@ -28,30 +40,35 @@ class Order(models.Model):
     deadline = fields.Datetime(string="Deadline")
     maintenance_types_id = fields.Many2one("sworkshop.maintenance.types", string="Maintenance Types")
     driving_test = fields.Boolean(string="Driving Test")
-    status = fields.Selection(string="Status", selection=[('check_in','Check In'), ('check_out','Check Out'), ('in_quotation', 'In Quotation'), ('closed', 'Closed'), ('canceled','Canceled')], default="check_in", copy=False, readonly=True)
+    state = fields.Selection(string="Status", selection=SWORKSHOP_ORDER_STATE, default="new", copy=False, readonly=True)
     lines_ids = fields.One2many("sworkshop.order.lines", "order_id", string="Order Lines")
-    to_repair = fields.Text (string="To Repair")
+    to_repair = fields.Text(string="To Repair")
     model_id = fields.Many2one("fleet.vehicle.model", string="Vehicle Model", related="vehicle_id.model_id")
     summary = fields.Text(string="Summary")
-    note = fields.Text(string="Note")
-    image = fields.Binary(string="Image")
-    image_vehicle = fields.Binary(string="Image Vehicle", related="vehicle_id.image_128", readonly=True)
+    note = fields.Html(string="Note")
+    image_vehicle = fields.Binary(string="Image")
     
     @api.ondelete(at_uninstall=False)
     def _unlink_if_status_in_quotation_canceled(self):
-        if any(record.status in ('check_out','in_quotation', 'closed') for record in self):
+        if any(record.status in ('check_out','quote', 'close') for record in self):
             raise UserError("Only check in o canceled orders can be deleted.")
 
     def action_set_cancel(self):
-        if any(record.status == 'in-quotation' for record in self):
+        if any(record.status == 'quote' for record in self):
             raise UserError('Quoted order cannot be canceled.')
-        self.update({'status': 'canceled'})
+        self.update({'state': 'cancel'})
         return True
 
+    """ def action_set_status(self):
+        return True """
+    
     @api.model
-    def create(self, vals):
-        if vals.get('name', 'New') == 'New':
-            vals['name'] = self.env['ir.sequence'].next_by_code(
-                'self.order') or 'New'
-        result = super(Order, self).create(vals)
+    def create(self, vals_list):
+        for vals in vals_list:
+            if 'company_id' in vals:
+                self = self.with_company(vals['company_id'])
+            if vals.get('name', 'New') == 'New':
+                vals['name'] = self.env['ir.sequence'].next_by_code(
+                    'sworkshop.order') or 'New'
+        result = super(Order, self).create(vals_list)
         return result

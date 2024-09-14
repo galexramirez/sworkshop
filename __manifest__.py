@@ -22,9 +22,7 @@ Administration and Management of services and resources for the care of a mechan
         'base',
         'fleet',
         'product',
-        'sale',
         'mail',
-        'purchase',
         'stock'
     ],
 
@@ -43,9 +41,7 @@ Administration and Management of services and resources for the care of a mechan
         'views/isw_fleet_vehicle_manufactures_views.xml',
         'views/isw_fleet_vehicle_views.xml',
         'views/sw_order_views.xml',
-        'views/sw_menu_root.xml',
-        'views/views.xml',
-        'views/templates.xml'
+        'views/sw_menu_root.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
