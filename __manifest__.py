@@ -29,6 +29,10 @@ Administration and Management of services and resources for the care of a mechan
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'security/ir_rules.xml',
+        
+        'data/ir_sequence_data.xml',
+        
         'views/sw_product_brand_views.xml',
         'views/sw_maintenance_types_views.xml',
         'views/isw_product_template_views.xml',

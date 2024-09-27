@@ -8,7 +8,7 @@
       <field name="inherit_id" ref="fleet.fleet_vehicle_view_tree"></field>
       <field name="arch" type="xml">
         <xpath expr="//tree/field[@name='category_id']" position="before">
-          <field name="owner_id"/>
+          <field name="owner_id" />
         </xpath>
         <xpath expr="//tree/field[@name='driver_id']" position="attributes">
           <attribute name="invisible">True</attribute>
@@ -28,7 +28,7 @@
           <attribute name="invisible">True</attribute>
         </xpath>
         <xpath expr="//form/header/field[@name='state_id']" position="after">
-          <field name="workshop_state_id"  widget="statusbar" options="{'clickable': '1'}"/>
+          <field name="workshop_state_id" widget="statusbar" options="{'clickable': '1'}" />
         </xpath>
         <xpath expr="//form/sheet/group/group/field[@name='driver_id']" position="attributes">
           <attribute name="invisible">True</attribute>
@@ -43,9 +43,12 @@
           <field name="id" />
           <field name="serial_number" />
         </xpath>
-        <!-- <xpath expr="//form/sheet/notebook/page/field[@name='note']" position="attributes">
-          <attribute name="string">Technical Sheet</attribute>
-        </xpath> -->
+        <xpath expr="//form/sheet/notebook/page[@name='note']" position="after">
+          <page string="Technical Sheet" name="technical_sheet">
+            <field name="technical_sheet" nolabel="1"
+              placeholder="Write here any other information related to this vehicle" />
+          </page>
+        </xpath>
       </field>
     </record>
 

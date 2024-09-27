@@ -1,6 +1,32 @@
 <odoo>
   <data>
 
+    <record model="ir.ui.view" id="fleet_vehicle_model_view_form_inherit_sworkshop">
+      <field name="name">fleet.vehicle.model.form.inherit.sworkshop</field>
+      <field name="model">fleet.vehicle.model</field>
+      <field name="inherit_id" ref="fleet.fleet_vehicle_model_view_form"></field>
+      <field name="arch" type="xml">
+        <xpath expr="//form/sheet/notebook/page[@name='vendors']" position="after">
+          <page string="Related Products" name="related_products">
+            <field name="products_ids">
+              <tree editable="bottom" limit="200">
+                <field name="product_id" />
+                <field name="brand_id"/>
+                <field name="unique_code" />
+                <field name="manufacturer_code"/>
+                <field name="application_code" />
+                <field name="stamping_code" />
+              </tree>
+            </field>
+          </page>
+          <page string="Technical Sheet" name="technical_sheet">
+            <field name="technical_sheet" nolabel="1"
+              placeholder="Write here any other information related to this vehicle model" />
+          </page>
+        </xpath>
+      </field>
+    </record>
+
     <!-- actions opening views on models -->
     <record model="ir.actions.act_window" id="isw_action_models_window">
       <field name="name">iSW Models</field>
