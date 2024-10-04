@@ -2,19 +2,13 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-    <record model="ir.ui.view" id="fleet_vehicle_view_tree_sworkshop_inherited">
+    <record model="ir.ui.view" id="fleet_vehicle_view_tree_inherited_sworkshop">
       <field name="name">fleet.vehicle.tree.inherited.sworkshop</field>
       <field name="model">fleet.vehicle</field>
       <field name="inherit_id" ref="fleet.fleet_vehicle_view_tree"></field>
       <field name="arch" type="xml">
         <xpath expr="//tree/field[@name='category_id']" position="before">
           <field name="owner_id" />
-        </xpath>
-        <xpath expr="//tree/field[@name='driver_id']" position="attributes">
-          <attribute name="invisible">True</attribute>
-        </xpath>
-        <xpath expr="//tree/field[@name='future_driver_id']" position="attributes">
-          <attribute name="invisible">True</attribute>
         </xpath>
       </field>
     </record>
@@ -24,20 +18,8 @@
       <field name="model">fleet.vehicle</field>
       <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"></field>
       <field name="arch" type="xml">
-        <xpath expr="//form/header/field[@name='state_id']" position="attributes">
-          <attribute name="invisible">True</attribute>
-        </xpath>
-        <xpath expr="//form/header/field[@name='state_id']" position="after">
-          <field name="workshop_state_id" widget="statusbar" options="{'clickable': '1'}" />
-        </xpath>
-        <xpath expr="//form/sheet/group/group/field[@name='driver_id']" position="attributes">
-          <attribute name="invisible">True</attribute>
-        </xpath>
         <xpath expr="//form/sheet/group/group/field[@name='driver_id']" position="after">
           <field name="owner_id" />
-        </xpath>
-        <xpath expr="//form/sheet/group/group/field[@name='future_driver_id']" position="attributes">
-          <attribute name="invisible">True</attribute>
         </xpath>
         <xpath expr="//form/sheet/group/group/field[@name='company_id']" position="after">
           <field name="id" />
@@ -59,17 +41,19 @@
       <field name="view_mode">tree,form</field>
     </record>
 
-    <!-- <record model="ir.actions.act_window.view" id="isw_action_view_fleet_vehicle_tree">
+    <record model="ir.actions.act_window.view" id="isw_action_view_fleet_vehicle_tree">
+      <field name="sequence" eval="1"></field>
       <field name="view_mode">tree</field>
-      <field name="view_id" ref="sworkshop.inherited_fleet_vehicle_view_tree"></field>
+      <field name="view_id" ref="fleet_vehicle_view_tree_inherited_sworkshop"></field>
       <field name="act_window_id" ref="isw_action_fleet_vehicle_window"></field>
     </record> 
 
     <record model="ir.actions.act_window.view" id="isw_action_view_fleet_vehicle_form">
+      <field name="sequence" eval="2"></field>
       <field name="view_mode">form</field>
       <field name="view_id" ref="fleet_vehicle_view_form_inherit_sworkshop"></field>
       <field name="act_window_id" ref="isw_action_fleet_vehicle_window"></field>
-    </record> -->
+    </record>
 
   </data>
 </odoo>

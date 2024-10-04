@@ -46,7 +46,7 @@ class Order(models.Model):
     deadline = fields.Datetime(string="Deadline")
     maintenance_types_id = fields.Many2one("sworkshop.maintenance.types", string="Maintenance Types")
     driving_test = fields.Boolean(string="Driving Test")
-    state = fields.Selection(string="Status", selection=SWORKSHOP_ORDER_STATE, default="new", copy=False, readonly=True)
+    state = fields.Selection(string="State", selection=SWORKSHOP_ORDER_STATE, default="new", copy=False, readonly=True)
     lines_ids = fields.One2many("sworkshop.order.line", "order_id", string="Order Lines")
     to_repair = fields.Text(string="To Repair")
     model_id = fields.Many2one("fleet.vehicle.model", string="Vehicle Model", related="vehicle_id.model_id")
@@ -83,3 +83,7 @@ class Order(models.Model):
                     'sworkshop.order') or 'New'
         result = super(Order, self).create(vals_list)
         return result
+    
+    @api.onchange("vehicle_id")
+    def _onchange_vehicle_id(self):
+        self.customer_id = self.vehicle_id.owner_id

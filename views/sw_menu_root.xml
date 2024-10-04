@@ -26,8 +26,8 @@
       action="isw_action_categories_window"/> 
     <menuitem name="Service Types" id="sworkshop_menu_2_stypes_list" parent="sworkshop_menu_2"
       action="isw_action_stypes_window"/>
-    <menuitem name="Status" id="sworkshop_menu_2_vstatus_list" parent="sworkshop_menu_2"
-      action="sw_action_vstatus_window"/> 
+    <menuitem name="State" id="sworkshop_menu_2_vstate_list" parent="sworkshop_menu_2"
+      action="sw_action_vstate_window"/> 
     <menuitem name="Tags" id="sworkshop_menu_2_tags_list" parent="sworkshop_menu_2"
       action="isw_action_tags_window"/> 
     <menuitem name="Activity Types" id="sworkshop_menu_2_atypes_list" parent="sworkshop_menu_2"

@@ -2,8 +2,8 @@
   <data>
 
     <!-- actions opening views on models -->
-    <record model="ir.actions.act_window" id="sw_action_vstatus_window">
-      <field name="name">SW Vehicle Status</field>
+    <record model="ir.actions.act_window" id="sw_action_vstate_window">
+      <field name="name">SW Vehicle State</field>
       <field name="res_model">sworkshop.vehicle.state</field>
       <field name="view_mode">tree,form</field>
     </record>

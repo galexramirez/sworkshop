@@ -3,6 +3,12 @@
 
 from odoo import models, fields, api, _
 
+VEHICLE_TYPE = [
+    ("car", "Car"),
+    ("bike", "Bike"),
+    ("motor", "Motor"),
+]
+
 class FleetVehicle(models.Model):
     _inherit = 'fleet.vehicle'
     

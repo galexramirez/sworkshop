@@ -13,6 +13,7 @@ class OrderLine(models.Model):
     company_id = fields.Many2one(
         related='order_id.company_id',
         store=True, index=True, precompute=True)
+    
     product_id = fields.Many2one('product.template', string="Product", required=True)
     brand_id = fields.Many2one("sworkshop.product.brand", string="Product Brands", related='product_id.brand_id', readonly=True)
     unique_code = fields.Char(string='Unique Code', related='product_id.unique_code', readonly=True)
@@ -26,4 +27,4 @@ class OrderLine(models.Model):
     @api.model
     def create(self, vals):
         self.env['sworkshop.order'].browse(vals['order_id']).update({'state':'check_out'})
-        return super(OrderLine, self).create(vals)
+        return super(OrderLine, self).create(vals)    
