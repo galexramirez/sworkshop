@@ -20,6 +20,4 @@ class ProductTemplate(models.Model):
         domain = []
         if name:
             domain = ['|', '|', '|', '|', '|', ('name', operator, name), ('brand_id', operator, name), ('unique_code', operator, name), ('manufacturer_code', operator, name), ('application_code', operator, name), ('stamping_code', operator, name) ]
-        return self._search(domain + args, limit=limit, access_rights_uid=name_get_uid, order=order)    
-    
-    
+        return self._search(domain + args, limit=limit, access_rights_uid=name_get_uid, order=order)

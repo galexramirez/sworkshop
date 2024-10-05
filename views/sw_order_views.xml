@@ -32,7 +32,7 @@
             <field name="name">sworkshop.order_kanban</field>
             <field name="model">sworkshop.order</field>
             <field name="arch" type="xml">
-                <kanban default_group_by='state' class="o_sworkshop_order_kanban o_kanban_small_column o_opportunity_kanban" sample="1" default_order="state, deadline asc">
+                <kanban default_group_by='state' class="o_sworkshop_order_kanban o_kanban_small_column o_opportunity_kanban" sample="1" default_order="state, deadline asc" quick_create="false">
                     <field name="state" />
                     <field name="customer_id"/>
                     <field name="vehicle_id" />
@@ -132,6 +132,7 @@
                             <page string="Order Lines">
                                 <field name="lines_ids" readonly="state in ('close','cancel')">
                                     <tree editable="bottom" limit="200">
+                                        <field name="sl_no" readonly="1" />
                                         <field name="product_id"
                                             domain="[('model_id','=',model_id)]" />
                                         <field name="brand_id"/>

@@ -73,6 +73,13 @@ class Order(models.Model):
     def action_link_quotes(self):
         return True
     
+    def set_line_number(self):
+        sl_no = 0
+        for line in self.lines_ids:
+            sl_no += 1
+            line.sl_no = sl_no
+        return
+        
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
@@ -82,8 +89,14 @@ class Order(models.Model):
                 vals['name'] = self.env['ir.sequence'].next_by_code(
                     'sworkshop.order') or 'New'
         result = super(Order, self).create(vals_list)
+        result.set_line_number()
         return result
     
+    def write(self, values):
+        res = super(Order, self).write(values)
+        self.set_line_number()
+        return res
+        
     @api.onchange("vehicle_id")
     def _onchange_vehicle_id(self):
         self.customer_id = self.vehicle_id.owner_id

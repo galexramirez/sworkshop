@@ -23,6 +23,7 @@
       <field name="model">product.template</field>
       <field name="inherit_id" ref="product.product_template_form_view"></field>
       <field name="mode">primary</field>
+      <field name="priority">7</field>
       <field name="arch" type="xml">
         <xpath expr="//form/sheet/notebook/page[@name='inventory']" position="after">
           <page name="sw_codes" string="Codes">
@@ -67,7 +68,7 @@
     </record>
 
     <record model="ir.actions.act_window.view" id="isw_action_view_product_form">
-      <field name="sequence" eval="2"></field>
+      <field name="sequence" eval="6"></field>
       <field name="view_mode">form</field>
       <field name="view_id" ref="product_template_view_form_inherit_sworkshop"></field>
       <field name="act_window_id" ref="isw_action_product_template_window"></field>
