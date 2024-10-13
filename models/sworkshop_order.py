@@ -8,7 +8,8 @@ from odoo import Command
 SWORKSHOP_ORDER_STATE = [
     ("new", "Check In"),
     ("check_out", "Check Out"), 
-    ("quote", "Quote"), 
+    ("quote", "Quote"),
+    ("work_order", "Work Order"), 
     ("close", "Closed"), 
     ("cancel", "Cancelled"),
 ]
@@ -53,12 +54,11 @@ class Order(models.Model):
     summary = fields.Text(string="Summary")
     note = fields.Html(string="Note")
     image_vehicle = fields.Binary(string="Image")
-    quote_id = fields.Char(string="Quote", default='0')
     order_type = fields.Selection(string="Order Type", selection=SWORKSHOP_ORDER_TYPE, default="car", required=True, copy=False)
     
     @api.ondelete(at_uninstall=False)
     def _unlink_if_status_in_quotation_canceled(self):
-        if any(record.state in ('check_out','quote', 'close') for record in self):
+        if any(record.state in ('check_out','quote', 'work_order', 'close') for record in self):
             raise UserError("Only check in o canceled orders can be deleted.")
 
     def action_set_cancel(self):
@@ -68,9 +68,6 @@ class Order(models.Model):
         return True
 
     def action_set_status(self):
-        return True
-    
-    def action_link_quotes(self):
         return True
     
     def set_line_number(self):
@@ -103,4 +100,3 @@ class Order(models.Model):
 
     def _expand_states(self, states, domain, order):
         return [key for key, val in type(self).state.selection]
-        

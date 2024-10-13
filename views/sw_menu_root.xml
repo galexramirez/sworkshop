@@ -15,6 +15,8 @@
 
     <menuitem name="Order" id="sworkshop_menu_1_order_list" parent="sworkshop_menu_1"
       action="sw_action_order_window"/>
+    <menuitem name="Technical" id="sworkshop_menu_1_tehcnical_list" parent="sworkshop_menu_1"
+      action="isw_action_res_users_window"/>
 
     <menuitem name="Vehicles" id="sworkshop_menu_2_vehicle_list" parent="sworkshop_menu_2"
       action="isw_action_fleet_vehicle_window"/>

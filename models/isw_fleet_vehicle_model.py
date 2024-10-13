@@ -10,4 +10,4 @@ class FleetVehicleModel(models.Model):
     products_ids = fields.One2many("sworkshop.product.models", "model_id", string="Model Products")
     technical_sheet = fields.Html(string='Technical Sheet')
     vehicle_type = fields.Selection(selection_add=[('motor','Motor')], ondelete={'motor':'cascade'})
-    
+    color_sw = fields.Integer(string="Color SW")
