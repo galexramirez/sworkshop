@@ -35,7 +35,7 @@
             <field name="model">sworkshop.order</field>
             <field name="arch" type="xml">
                 <kanban default_group_by='state'
-                    class="o_sworkshop_order_kanban o_kanban_small_column o_opportunity_kanban"
+                    class="o_sworkshop_order_kanban o_kanban_small_column o_opportunity_kanban o_kanban_mobile"
                     sample="1" 
                     default_order="state, deadline asc" 
                     quick_create="false">
@@ -47,6 +47,8 @@
                     <field name="order_type" />
                     <field name="opening_date"></field>
                     <field name="deadline"></field>
+                    <progressbar field='state'
+                             colors='{"quote": "success", "work_order": "warning", "close": "muted"}'/>
                     <templates>
                         <t t-name="kanban-box">
                             <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
@@ -95,7 +97,7 @@
                 <form string='Order Form'>
                     <header>
                         <button name="action_set_cancel" string="CANCEL" type="object"
-                            class="oe_highlight" invisible="state in ('close')" />
+                            class="oe_highlight" invisible="state in ('work_order','close','cancel')" />
                         <field name="state" widget="statusbar"
                             statusbar_visible="new,check_out,quote,work_order,close,cancel" />
                     </header>
@@ -178,8 +180,14 @@
                                 <group>
                                     <group>
                                         <field name="maintenance_types_id" />
-                                        <field name="repairman_id" />
-                                        <field name="helper_id" />
+                                        <field name="repairman_id"
+                                            domain="[('is_technical','=',True)]"
+                                            context="{ 'form_view_ref':'sworkshop.res_users_view_form_inherit_sworkshop'}" 
+                                        />
+                                        <field name="helper_id" 
+                                            domain="[('is_technical','=',True)]"
+                                            context="{ 'form_view_ref':'sworkshop.res_users_view_form_inherit_sworkshop'}" 
+                                        />
                                     </group>
                                     <group>
                                         <field name="duration" />
@@ -190,7 +198,7 @@
                             <page string="Resume">
                                 <group>
                                     <field name="summary"
-                                        readonly="state in ('new','check_out','quote','cancel')" />
+                                        readonly="state in ('new','check_out','quote','close','cancel')" />
                                 </group>
                             </page>
                         </notebook>

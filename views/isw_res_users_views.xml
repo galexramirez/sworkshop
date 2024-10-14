@@ -8,22 +8,26 @@
       <field name="mode">primary</field>
       <field name="arch" type="xml">
         <xpath expr="//form/sheet/notebook/page[@name='preferences']" position="after">
-          <page string="Order Work" name="order_work">
+          <page string="Order Work" name="order_work" invisible="not is_technical">
             <field name="sworkshop_order_ids" readonly="True">
-              <tree editable="bottom" limit="200">
+              <tree limit="200">
                 <field name="name" />
-                <field name="company_id"/>
+                <field name="company_id" />
                 <field name="customer_id" />
                 <field name="order_type" />
-                <field name="vehicle_id"/>
-                <field name="opening_date"></field>
-                <field name="deadline"></field>
+                <field name="vehicle_id" />
+                <field name="opening_date" />
+                <field name="deadline" />
                 <field name="state" />
               </tree>
             </field>
           </page>
-          <page string="Vehicle Models" name="vehicle_models">
-            <field name="vehicle_models" widget="many2many_tags" options="{'color_field': 'color_sw'}" />
+          <page string="Technical" name="technical_page" invisible="not is_technical">
+            <group name="technical_group">
+              <field name="is_technical" readonly="True" />
+              <field name="vehicle_models" widget="many2many_tags"
+                options="{'color_field': 'color_sw'}" />
+            </group>
           </page>
         </xpath>
       </field>
@@ -34,6 +38,8 @@
       <field name="name">iSW Users</field>
       <field name="res_model">res.users</field>
       <field name="view_mode">tree,kanban,form</field>
+      <field name="domain">[('is_technical','=',True)]</field>
+      <field name="context">{'default_is_technical':True}</field>
     </record>
 
     <record model="ir.actions.act_window.view" id="isw_action_view_res_users_tree">

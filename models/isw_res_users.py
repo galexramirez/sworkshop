@@ -11,3 +11,4 @@ class Technical(models.Model):
                                          column1="technical_id",
                                          column2='vehicle_model_id')
     sworkshop_order_ids = fields.One2many("sworkshop.order", "repairman_id", string="SW Order")
+    is_technical = fields.Boolean(string="Is Technical")

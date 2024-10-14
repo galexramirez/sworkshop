@@ -11,12 +11,12 @@ SWORKSHOP_ORDER_STATE = [
     ("quote", "Quote"),
     ("work_order", "Work Order"), 
     ("close", "Closed"), 
-    ("cancel", "Cancelled"),
+    ("cancel", "Cancelled")
 ]
 
 SWORKSHOP_ORDER_TYPE = [
     ("car", "Car"),
-    ("motor", "Motor"),
+    ("motor", "Motor")
 ]
 
 class Order(models.Model):
@@ -62,8 +62,8 @@ class Order(models.Model):
             raise UserError("Only check in o canceled orders can be deleted.")
 
     def action_set_cancel(self):
-        if any(record.state == 'quote' for record in self):
-            raise UserError('Quoted order cannot be canceled.')
+        if any(record.state in ('work_order','close','cancel') for record in self):
+            raise UserError('WorkShop Order cannot be canceled.')
         self.update({'state': 'cancel'})
         return True
 
