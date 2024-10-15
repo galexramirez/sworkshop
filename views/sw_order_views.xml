@@ -140,6 +140,7 @@
                                 />
                                 <field name="opening_date" />
                                 <field name="manager_id" decoration-success="manager_id" />
+                                <field name="reference_document" />
                             </group>
                         </group>
                         <notebook>

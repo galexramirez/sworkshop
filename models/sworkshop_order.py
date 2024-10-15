@@ -55,6 +55,7 @@ class Order(models.Model):
     note = fields.Html(string="Note")
     image_vehicle = fields.Binary(string="Image")
     order_type = fields.Selection(string="Order Type", selection=SWORKSHOP_ORDER_TYPE, default="car", required=True, copy=False)
+    reference_document = fields.Char(String="Reference Document")
     
     @api.ondelete(at_uninstall=False)
     def _unlink_if_status_in_quotation_canceled(self):
