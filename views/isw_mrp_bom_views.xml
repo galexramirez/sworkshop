@@ -1,0 +1,12 @@
+<odoo>
+  <data>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="isw_action_bill_materials_window">
+      <field name="name">iSW Bill of Materials</field>
+      <field name="res_model">mrp.bom</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

@@ -2,6 +2,39 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="product_template_view_kanban_inherit_sworkshop">
+      <field name="name">product.template.view.kanban.inherit.sworkshop</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_kanban_view"></field>
+      <field name="mode">primary</field>
+      <field name="arch" type="xml">
+        <xpath expr="//kanban/field[@name='categ_id']" position="after">
+          <field name="brand_id" />
+          <field name="unique_code" />
+          <field name="manufacturer_code" />
+          <field name="application_code" />
+          <field name="stamping_code" />
+        </xpath>
+        <xpath expr="//kanban/templates/t/div/div/div/field[@name='product_properties']" position="after">
+          <div>
+            Brand: <field name="brand_id" />
+          </div>
+          <div>
+            Uni.Cod.: <field name="unique_code" />
+          </div>
+          <div>
+            Man.Cod.: <field name="manufacturer_code" />
+          </div>
+          <div>
+            App.Cod.: <field name="application_code" />
+          </div>
+          <div>
+            Sta.Cod.: <field name="stamping_code" />
+          </div>
+        </xpath>
+      </field>
+    </record>
+
     <record model="ir.ui.view" id="product_template_view_tree_inherit_sworkshop">
       <field name="name">product.template.view.tree.inherit.sworkshop</field>
       <field name="model">product.template</field>
@@ -9,7 +42,7 @@
       <field name="mode">primary</field>
       <field name="arch" type="xml">
         <xpath expr="//tree/field[@name='activity_exception_decoration']" position="after">
-          <field name="brand_id"/>
+          <field name="brand_id" />
           <field name="unique_code" />
           <field name="manufacturer_code" />
           <field name="application_code" />
@@ -23,7 +56,6 @@
       <field name="model">product.template</field>
       <field name="inherit_id" ref="product.product_template_form_view"></field>
       <field name="mode">primary</field>
-      <!-- <field name="priority">7</field> -->
       <field name="arch" type="xml">
         <xpath expr="//form/sheet/notebook/page[@name='inventory']" position="after">
           <page name="sw_codes" string="Codes">
@@ -33,17 +65,17 @@
               <field name="manufacturer_code" />
               <field name="application_code" />
               <field name="stamping_code" />
-            </group>        
+            </group>
           </page>
           <page name="related_models" string="Related Models">
             <field name="models_ids">
               <tree editable="bottom">
-                <field name="model_id"></field>    
+                <field name="model_id"></field>
               </tree>
               <form>
                 <sheet>
                   <group>
-                    <field name="model_id"></field>                    
+                    <field name="model_id"></field>
                   </group>
                 </sheet>
               </form>
@@ -57,18 +89,25 @@
     <record model="ir.actions.act_window" id="isw_action_product_template_window">
       <field name="name">Product Template</field>
       <field name="res_model">product.template</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="sworkshop.action_view_product_kanban">
+      <field name="sequence" eval="1"></field>
+      <field name="view_mode">kanban</field>
+      <field name="view_id" ref="product_template_view_kanban_inherit_sworkshop"></field>
+      <field name="act_window_id" ref="isw_action_product_template_window"></field>
     </record>
 
     <record model="ir.actions.act_window.view" id="sworkshop.action_view_product_tree">
-      <field name="sequence" eval="1"></field>
+      <field name="sequence" eval="2"></field>
       <field name="view_mode">tree</field>
       <field name="view_id" ref="product_template_view_tree_inherit_sworkshop"></field>
       <field name="act_window_id" ref="isw_action_product_template_window"></field>
     </record>
 
     <record model="ir.actions.act_window.view" id="isw_action_view_product_form">
-      <field name="sequence" eval="2"></field>
+      <field name="sequence" eval="3"></field>
       <field name="view_mode">form</field>
       <field name="view_id" ref="product_template_view_form_inherit_sworkshop"></field>
       <field name="act_window_id" ref="isw_action_product_template_window"></field>

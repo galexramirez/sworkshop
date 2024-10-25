@@ -38,10 +38,10 @@ class Order(models.Model):
     vehicle_id = fields.Many2one("fleet.vehicle", string="Vehicle")
     opening_date = fields.Datetime(string="Opening Date", required=True, copy=False, default=fields.Date.today)
     mobile = fields.Char(string="Mobile", related="customer_id.mobile", readonly=False)
-    driver = fields.Many2one("res.partner", string="Driver")
+    driver_id = fields.Many2one("res.partner", string="Driver")
     manager_id = fields.Many2one("res.users", string="Manager", index=True, tracking=True, default=lambda self: self.env.user)
-    repairman_id = fields.Many2one("res.users", string="Repairman")
-    helper_id = fields.Many2one("res.users", string="Helper")
+    master_chief_id = fields.Many2one("res.users", string="Master Chief")
+    technician_id = fields.Many2one("res.users", string="Technician")
     failures = fields.Text(string="Failures")
     duration = fields.Datetime(string="Duration", related="opening_date", required=True, readonly=False)
     deadline = fields.Datetime(string="Deadline")
@@ -63,7 +63,7 @@ class Order(models.Model):
             raise UserError("Only check in o canceled orders can be deleted.")
 
     def action_set_cancel(self):
-        if any(record.state in ('work_order','close','cancel') for record in self):
+        if any(record.state in ('close','cancel') for record in self):
             raise UserError('WorkShop Order cannot be canceled.')
         self.update({'state': 'cancel'})
         return True

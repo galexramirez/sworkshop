@@ -15,7 +15,7 @@
                     <field name="customer_id" />
                     <field name="vehicle_id" />
                     <field name="manager_id" />
-                    <field name="repairman_id" />
+                    <field name="master_chief_id" />
                     <field name="deadline" />
                     <field name="maintenance_types_id" />
                     <field name="company_id" 
@@ -94,15 +94,15 @@
             <field name="name">sworkshop.order_form</field>
             <field name="model">sworkshop.order</field>
             <field name="arch" type="xml">
-                <form string='Order Form'>
+                <form string='Order Form' name="sw_order_form">
                     <header>
                         <button name="action_set_cancel" string="CANCEL" type="object"
-                            class="oe_highlight" invisible="state in ('work_order','close','cancel')" />
+                            class="oe_highlight" invisible="state in ('cancel')" />
                         <field name="state" widget="statusbar"
                             statusbar_visible="new,check_out,quote,work_order,close,cancel" />
                     </header>
-                    <sheet>
-                        <field name="image_vehicle" widget="image" class="oe_avatar" />
+                    <sheet name="sw_order_sheet" >
+                        <field name="image_vehicle" widget="image" class="oe_avatar" readonly="state in ('close','cancel')" />
                         <div class="oe_title">
                             <h1 class="mb32">
                                 <field name="name" class="mb16" />
@@ -110,10 +110,10 @@
                         </div>
                         <group>
                             <group>
-                                <field name="order_type" />
-                                <field name="customer_id" />
-                                <field name="owner_id" />
-                                <field name="mobile" />
+                                <field name="order_type" readonly="state in ('close','cancel')" />
+                                <field name="customer_id" widget="many2one_avatar" readonly="state in ('close','cancel')" />
+                                <field name="owner_id" widget="many2one_avatar" readonly="state in ('close','cancel')" />
+                                <field name="mobile" readonly="state in ('close','cancel')" />
                             </group>
                             <group>
                                 <field name="vehicle_id"
@@ -121,43 +121,48 @@
                                     domain="[('model_id.vehicle_type','=',order_type),('owner_id','=',owner_id)]"
                                     invisible="order_type == 'motor' or not owner_id"
                                     context="{'form_view_ref':'sworkshop.fleet_vehicle_view_form_inherit_sworkshop','default_owner_id':owner_id}"
+                                    readonly="state in ('close','cancel')"
                                 />
                                 <field name="vehicle_id"
                                     string="Vehicle"
                                     domain="[('model_id.vehicle_type','=',order_type)]"
                                     invisible="order_type == 'motor' or owner_id"
                                     context="{'form_view_ref':'sworkshop.fleet_vehicle_view_form_inherit_sworkshop'}"
+                                    readonly="state in ('close','cancel')"
                                 />
                                 <field name="vehicle_id" string="Motor"
                                     domain="[('model_id.vehicle_type','=',order_type),('owner_id','=',owner_id)]"
                                     invisible="order_type == 'car' or not owner_id"
                                     context="{'form_view_ref':'sworkshop.fleet_vehicle_view_form_inherit_sworkshop','default_owner_id':owner_id}" 
+                                    readonly="state in ('close','cancel')"
                                 />
                                 <field name="vehicle_id" string="Motor"
                                     domain="[('model_id.vehicle_type','=',order_type)]"
                                     invisible="order_type == 'car' or owner_id"
                                     context="{'form_view_ref':'sworkshop.fleet_vehicle_view_form_inherit_sworkshop'}" 
+                                    readonly="state in ('close','cancel')"
                                 />
-                                <field name="opening_date" />
-                                <field name="manager_id" decoration-success="manager_id" />
-                                <field name="reference_document" />
+                                <field name="opening_date" readonly="state in ('close','cancel')"/>
+                                <field name="manager_id" decoration-success="manager_id"  widget="many2one_avatar" readonly="state in ('close','cancel')"/>
+                                <field name="reference_document" readonly="state in ('close','cancel')" />
                             </group>
                         </group>
                         <notebook>
                             <page string="Description">
                                 <group>
                                     <group>
-                                        <field name="failures" />
+                                        <field name="failures" readonly="state in ('close','cancel')" />
                                     </group>
                                     <group>
-                                        <field name="driving_test" invisible="order_type == 'motor'" />
-                                        <field name="driver" invisible="not driving_test" />
-                                        <field name="to_repair" invisible="not driving_test" />
+                                        <field name="driving_test" invisible="order_type == 'motor'" readonly="state in ('close','cancel')" />
+                                        <field name="driver_id" invisible="not driving_test" readonly="state in ('close','cancel')" />
+                                        <field name="to_repair" invisible="not driving_test" readonly="state in ('close','cancel')" />
                                     </group>
                                 </group>
                                 <label for='note'>Note</label>
                                 <field name="note" nolabel="1"
-                                    placeholder="Write here any other information related to this vehicle" />
+                                    placeholder="Write here any other information related to this vehicle" 
+                                    readonly="state in ('close','cancel')" />
                             </page>
                             <page string="Order Lines">
                                 <field name="lines_ids" readonly="state in ('close','cancel')">
@@ -180,19 +185,23 @@
                             <page string="Attention">
                                 <group>
                                     <group>
-                                        <field name="maintenance_types_id" />
-                                        <field name="repairman_id"
+                                        <field name="maintenance_types_id" readonly="state in ('close','cancel')" />
+                                        <field name="master_chief_id"
                                             domain="[('is_technical','=',True)]"
                                             context="{ 'form_view_ref':'sworkshop.res_users_view_form_inherit_sworkshop'}" 
+                                            widget="many2one_avatar"
+                                            readonly="state in ('close','cancel')"
                                         />
-                                        <field name="helper_id" 
+                                        <field name="technician_id" 
                                             domain="[('is_technical','=',True)]"
                                             context="{ 'form_view_ref':'sworkshop.res_users_view_form_inherit_sworkshop'}" 
+                                            widget="many2one_avatar"
+                                            readonly="state in ('close','cancel')"
                                         />
                                     </group>
                                     <group>
-                                        <field name="duration" />
-                                        <field name="deadline" />
+                                        <field name="duration" readonly="state in ('close','cancel')" />
+                                        <field name="deadline" readonly="state in ('close','cancel')" />
                                     </group>
                                 </group>
                             </page>
