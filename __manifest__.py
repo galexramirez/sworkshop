@@ -23,7 +23,8 @@ Administration and Management of services and resources for the care of a mechan
         'fleet',
         'product',
         'mail',
-        'stock'
+        'stock',
+        'mrp'
     ],
 
     # always loaded
